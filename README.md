@@ -1,25 +1,39 @@
-# ElasticFusion #
-
-Real-time dense visual SLAM system capable of capturing comprehensive dense globally consistent surfel-based maps of room scale environments explored using an RGB-D camera.
-
-# Related Publications #
-Please cite this work if you make use of our system in any of your own endeavors:
-
-* **[ElasticFusion: Real-Time Dense SLAM and Light Source Estimation](http://www.thomaswhelan.ie/Whelan16ijrr.pdf)**, *T. Whelan, R. F. Salas-Moreno, B. Glocker, A. J. Davison and S. Leutenegger*, IJRR '16
-* **[ElasticFusion: Dense SLAM Without A Pose Graph](http://thomaswhelan.ie/Whelan15rss.pdf)**, *T. Whelan, S. Leutenegger, R. F. Salas-Moreno, B. Glocker and A. J. Davison*, RSS '15
-
-# 1. What do I need to build it? #
-
-## 1.1. Ubuntu ##
-
-Ubuntu 22.04 on Xorg, NVIDIA drivers 510.73.05, CUDA driver 11.6, CUDA toolkit 11.5 (essentially whatever is in the Ubuntu repos).
-
-```bash
-sudo apt install -y cmake-qt-gui git build-essential libusb-1.0-0-dev libudev-dev openjdk-11-jdk freeglut3-dev libglew-dev libsuitesparse-dev zlib1g-dev libjpeg-dev
-```
-
-```bash
-git clone https://github.com/mp3guy/ElasticFusion.git
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-elasticfusion" class="anchor" aria-hidden="true" tabindex="-1" href="#elasticfusion"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">弹性融合</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实时密集视觉 SLAM 系统能够捕获使用 RGB-D 相机探索的房间规模环境的全面密集全局一致的基于面元的地图。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-related-publications" class="anchor" aria-hidden="true" tabindex="-1" href="#related-publications"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">相关出版物</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您在自己的任何活动中使用我们的系统，请引用这项工作：</font></font></p>
+<ul dir="auto">
+<li><strong><a href="http://www.thomaswhelan.ie/Whelan16ijrr.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ElasticFusion：实时密集 SLAM 和光源估计</font></font></a></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> T. Whelan、RF Salas-Moreno、B. Glocker、AJ Davison 和 S. Leutenegger</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，IJRR '16</font></font></li>
+<li><strong><a href="http://thomaswhelan.ie/Whelan15rss.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ElasticFusion：没有姿态图的密集 SLAM</font></font></a></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> T. Whelan、S. Leutenegger、RF Salas-Moreno、B. Glocker 和 AJ Davison</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，RSS '15</font></font></li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-1-what-do-i-need-to-build-it" class="anchor" aria-hidden="true" tabindex="-1" href="#1-what-do-i-need-to-build-it"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. 构建它需要什么？</font></font></h1>
+<h2 tabindex="-1" dir="auto"><a id="user-content-11-ubuntu" class="anchor" aria-hidden="true" tabindex="-1" href="#11-ubuntu"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.1. </font><font style="vertical-align: inherit;">乌班图</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xorg 上的 Ubuntu 22.04、NVIDIA 驱动程序 510.73.05、CUDA 驱动程序 11.6、CUDA 工具包 11.5（基本上是 Ubuntu 存储库中的任何内容）。</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>sudo apt install -y cmake-qt-gui git build-essential libusb-1.0-0-dev libudev-dev openjdk-11-jdk freeglut3-dev libglew-dev libsuitesparse-dev zlib1g-dev libjpeg-dev</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="sudo apt install -y cmake-qt-gui git build-essential libusb-1.0-0-dev libudev-dev openjdk-11-jdk freeglut3-dev libglew-dev libsuitesparse-dev zlib1g-dev libjpeg-dev" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>git clone https://github.com/mp3guy/ElasticFusion.git
+<span class="pl-c1">cd</span> ElasticFusion/
+git submodule update --init
+<span class="pl-c1">cd</span> third-party/OpenNI2/
+make -j8
+<span class="pl-c1">cd</span> ../Pangolin/
+mkdir build
+<span class="pl-c1">cd</span> build
+cmake .. -DEIGEN_INCLUDE_DIR=<span class="pl-smi">$HOME</span>/ElasticFusion/third-party/Eigen/ -DBUILD_PANGOLIN_PYTHON=false
+make -j8
+<span class="pl-c1">cd</span> ../../..
+mkdir build
+<span class="pl-c1">cd</span> build/
+cmake ..</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git clone https://github.com/mp3guy/ElasticFusion.git
 cd ElasticFusion/
 git submodule update --init
 cd third-party/OpenNI2/
@@ -32,117 +46,137 @@ make -j8
 cd ../../..
 mkdir build
 cd build/
-cmake ..
-```
-
-# 2. How do I use it? #
-There are two subprojects in the repo:
-
-* The *Core* is the main engine which builds into a shared library that you can link into other projects and treat like an API. 
-* The *Tools* where the graphical interface used to run the system on either live sensor data or a logged data file lives.
-
-The executable (*ElasticFusion*) can take a bunch of parameters when launching it from the command line. They are as follows:
-
-* *-cal <calibration>* : Loads a camera calibration file specified as *fx fy cx cy*.
-* *-l <logfile>* : Processes the specified .klg log file.
-* *-p <poses>* : Loads ground truth poses to use instead of estimated pose.
-* *-c <confidence>* : Surfel confidence threshold (default *10*).
-* *-d <depth>* : Cutoff distance for depth processing (default *3*m).
-* *-i <icp>* : Relative ICP/RGB tracking weight (default *10*).
-* *-ie <error>* : Local loop closure residual threshold (default *5e-05*).
-* *-ic <count>* : Local loop closure inlier threshold (default *35000*).
-* *-cv <covariance>* : Local loop closure covariance threshold (default *1e-05*).
-* *-pt <photometric>* : Global loop closure photometric threshold (default *115*).
-* *-ft <threshold>* : Fern encoding threshold (default *0.3095*).
-* *-t <time>* : Time window length (default *200*).
-* *-s <skip>* : Frames to skip at start of log.
-* *-e <end>* : Cut off frame of log.
-* *-f* : Flip RGB/BGR.
-* *-icl* : Enable this if using the [ICL-NUIM](http://www.doc.ic.ac.uk/~ahanda/VaFRIC/iclnuim.html) dataset (flips normals to account for negative focal length on that data).
-* *-o* : Open loop mode.
-* *-rl* : Enable relocalisation.
-* *-fs* : Frame skip if processing a log to simulate real-time.
-* *-q* : Quit when finished a log.
-* *-fo* : Fast odometry (single level pyramid).
-* *-nso* : Disables SO(3) pre-alignment in tracking.
-* *-r* : Rewind and loop log forever. 
-* *-ftf* : Do frame-to-frame RGB tracking. 
-* *-sc* : Showcase mode (minimal GUI).
-
-Essentially by default *./ElasticFusion* will try run off an attached ASUS sensor live. You can provide a .klg log file instead with the -l parameter. You can capture .klg format logs using either [Logger1](https://github.com/mp3guy/Logger1) or [Logger2](https://github.com/mp3guy/Logger2). 
-
-# 3. How do I just use the Core API? #
-The libefusion.so shared library which gets built by the Core is what you want to link against.
-
-To then use the Core API, make sure to include the header file in your source file:
-```cpp
-    #include <ElasticFusion.h>
-```
-
-Initialise the static configuration parameters once somewhere at the start of your program:
-```cpp
-    Resolution::getInstance(640, 480);
-    Intrinsics::getInstance(528, 528, 320, 240);
-```
-
-Create an OpenGL context before creating an ElasticFusion object, as ElasticFusion uses OpenGL internally. You can do this whatever way you wish, using Pangolin is probably easiest given it's a dependency:
-```cpp
-    pangolin::Params windowParams;
-    windowParams.Set("SAMPLE_BUFFERS", 0);
-    windowParams.Set("SAMPLES", 0);
-    pangolin::CreateWindowAndBind("Main", 1280, 800, windowParams);
-```
-
-Make an ElasticFusion object and start using it:
-```cpp
-    ElasticFusion eFusion;
-    eFusion.processFrame(rgb, depth, timestamp, currentPose, weightMultiplier);
-```
-
-See the source code of MainController.cpp to see more usage.
-
-# 4. Datasets #
-
-We have provided a sample dataset which you can run easily with ElasticFusion for download [here](http://www.doc.ic.ac.uk/~sleutene/datasets/elasticfusion/dyson_lab.klg). Launch it as follows:
-
-```bash
-./ElasticFusion -l dyson_lab.klg
-```
-
-# 5. License #
-ElasticFusion is freely available for non-commercial use only.  Full terms and conditions which govern its use are detailed [here](http://www.imperial.ac.uk/dyson-robotics-lab/downloads/elastic-fusion/elastic-fusion-license/) and in the LICENSE.txt file.
-
-# 6. FAQ #
-***What are the hardware requirements?***
-
-A [very fast nVidia GPU (3.5TFLOPS+)](https://en.wikipedia.org/wiki/List_of_Nvidia_graphics_processing_units#GeForce_900_Series), and a fast CPU (something like an i7). If you want to use a non-nVidia GPU you can rewrite the tracking code or substitute it with something else, as the rest of the pipeline is actually written in the OpenGL Shading Language. 
-
-***How can I get performance statistics?***
-
-Download [Stopwatch](https://github.com/mp3guy/Stopwatch) and run *StopwatchViewer* at the same time as ElasticFusion. 
-
-***I ran a large dataset and got assert(graph.size() / 16 < MAX_NODES) failed***
-
-Currently there's a limit on the number of nodes in the deformation graph down to lazy coding (using a really wide texture instead of a proper 2D one). So we're bound by the maximum dimension of a texture, which is 16384 on modern cards/OpenGL. Either fix the code so this isn't a problem any more, or increase the modulo factor in *Core/Shaders/sample.geom*. 
-
-***I have a nice new laptop with a good GPU but it's still slow***
-
-If your laptop is running on battery power the GPU will throttle down to save power, so that's unlikely to work (as an aside, [Kintinuous](https://github.com/mp3guy/Kintinuous) will run at 30Hz on a modern laptop on battery power these days). You can try disabling SO(3) pre-alignment, enabling fast odometry, only using either ICP or RGB tracking and not both, running in open loop mode or disabling the tracking pyramid. All of these will cost you accuracy. 
-
-***I saved a map, how can I view it?***
-
-Download [Meshlab](http://meshlab.sourceforge.net/). Select Render->Shaders->Splatting. 
-
-***The map keeps getting corrupted - tracking is failing - loop closures are incorrect/not working***
-
-Firstly, if you're running live and not processing a log file, ensure you're hitting 30Hz, this is important. Secondly, you cannot move the sensor extremely fast because this violates the assumption behind projective data association. In addition to this, you're probably using a primesense, which means you're suffering from motion blur, unsynchronised cameras and rolling shutter. All of these are aggravated by fast motion and hinder tracking performance. 
-
-If you're not getting loop closures and expecting some, pay attention to the inlier and residual graphs in the bottom right, these are an indicator of how close you are to a local loop closure. For global loop closures, you're depending on [fern keyframe encoding](http://www.doc.ic.ac.uk/~bglocker/pdfs/glocker2015tvcg.pdf) to save you, which like all appearance-based place recognition methods, has its limitations. 
-
-***Is there a ROS bridge/node?***
-
-No. The system relies on an extremely fast and tight coupling between the mapping and tracking on the GPU, which I don't believe ROS supports natively in terms of message passing. 
-
-***This doesn't seem to work like it did in the videos/papers***
-
-A substantial amount of refactoring was carried out in order to open source this system, including rewriting a lot of functionality to avoid certain licenses and reduce dependencies. Although great care was taken during this process, it is possible that performance regressions were introduced and have not yet been discovered.
+cmake .." tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h1 tabindex="-1" dir="auto"><a id="user-content-2-how-do-i-use-it" class="anchor" aria-hidden="true" tabindex="-1" href="#2-how-do-i-use-it"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.我该如何使用它？</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">回购中有两个子项目：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Core是构建到共享库中的主引擎，您可以将</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">链接到其他项目并像 API 一样对待。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于在实时传感器数据或记录的数据文件上运行系统的图形界面的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">工具</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从命令行启动</font><font style="vertical-align: inherit;">可执行文件 ( </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ElasticFusion ) 时可以采用一堆参数。</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它们如下：</font></font></p>
+<ul dir="auto">
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-cal ：加载指定为</font></font></em><font style="vertical-align: inherit;"></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">fx fy cx cy</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的相机校准文件</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-l</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：处理指定的 .klg 日志文件。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-p</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：加载地面真实姿势以代替估计姿势。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-c</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：Surfel 置信度阈值（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-d</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：深度处理的截止距离（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> m）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-i</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：相对 ICP/RGB 跟踪权重（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-ie</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：局部环路闭合残差阈值（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5e-05</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-ic</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：本地环路闭合内点阈值（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">35000</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-cv</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：局部闭环协方差阈值（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1e-05</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-pt</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：全局闭环光度阈值（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">115</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-ft</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：Fern 编码阈值（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0.3095</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-t</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：时间窗口长度（默认</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-s</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：在日志开始时跳过的帧。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-e</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> : 切断日志的框架。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-f</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：翻转 RGB/BGR。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-icl ：如果使用</font></font></em><font style="vertical-align: inherit;"></font><a href="http://www.doc.ic.ac.uk/~ahanda/VaFRIC/iclnuim.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ICL-NUIM</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据集，则启用此选项</font><font style="vertical-align: inherit;">（翻转法线以考虑该数据的负焦距）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-o</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：开环模式。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-rl</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：启用重新本地化。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-fs</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：如果处理日志以模拟实时，则跳过帧。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-q</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：完成日志后退出。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-fo</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：快速里程计（单级金字塔）。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-nso</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：在跟踪中禁用 SO(3) 预对齐。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-r</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：倒回并永远循环日志。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-ftf</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：进行逐帧 RGB 跟踪。</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-sc</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：展示模式（最小 GUI）。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本上默认情况下</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">./ElasticFusion</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将尝试实时运行连接的华硕传感器。</font><font style="vertical-align: inherit;">您可以使用 -l 参数提供 .klg 日志文件。</font></font><a href="https://github.com/mp3guy/Logger1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以使用Logger1</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://github.com/mp3guy/Logger2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Logger2</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捕获 .klg 格式的日志</font><font style="vertical-align: inherit;">。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-3-how-do-i-just-use-the-core-api" class="anchor" aria-hidden="true" tabindex="-1" href="#3-how-do-i-just-use-the-core-api"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3. 如何使用Core API？</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由 Core 构建的 libefusion.so 共享库是您想要链接的库。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要使用 Core API，请确保在源文件中包含头文件：</font></font></p>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" dir="auto"><pre>    #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>ElasticFusion.h<span class="pl-pds">&gt;</span></span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    #include <ElasticFusion.h>" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在程序开始时的某个地方初始化静态配置参数：</font></font></p>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" dir="auto"><pre>    <span class="pl-en">Resolution::getInstance</span>(<span class="pl-c1">640</span>, <span class="pl-c1">480</span>);
+    <span class="pl-en">Intrinsics::getInstance</span>(<span class="pl-c1">528</span>, <span class="pl-c1">528</span>, <span class="pl-c1">320</span>, <span class="pl-c1">240</span>);</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    Resolution::getInstance(640, 480);
+    Intrinsics::getInstance(528, 528, 320, 240);" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在创建 ElasticFusion 对象之前创建 OpenGL 上下文，因为 ElasticFusion 在内部使用 OpenGL。</font><font style="vertical-align: inherit;">你可以用任何你想要的方式来做到这一点，使用 Pangolin 可能是最简单的，因为它是一个依赖项：</font></font></p>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" dir="auto"><pre>    pangolin::Params windowParams;
+    windowParams.Set(<span class="pl-s"><span class="pl-pds">"</span>SAMPLE_BUFFERS<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>);
+    windowParams.Set(<span class="pl-s"><span class="pl-pds">"</span>SAMPLES<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>);
+    <span class="pl-en">pangolin::CreateWindowAndBind</span>(<span class="pl-s"><span class="pl-pds">"</span>Main<span class="pl-pds">"</span></span>, <span class="pl-c1">1280</span>, <span class="pl-c1">800</span>, windowParams);</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    pangolin::Params windowParams;
+    windowParams.Set(&quot;SAMPLE_BUFFERS&quot;, 0);
+    windowParams.Set(&quot;SAMPLES&quot;, 0);
+    pangolin::CreateWindowAndBind(&quot;Main&quot;, 1280, 800, windowParams);" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个 ElasticFusion 对象并开始使用它：</font></font></p>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" dir="auto"><pre>    ElasticFusion eFusion;
+    eFusion.processFrame(rgb, depth, timestamp, currentPose, weightMultiplier);</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    ElasticFusion eFusion;
+    eFusion.processFrame(rgb, depth, timestamp, currentPose, weightMultiplier);" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看MainController.cpp的源代码以了解更多用法。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-4-datasets" class="anchor" aria-hidden="true" tabindex="-1" href="#4-datasets"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4. 数据集</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们提供了一个示例数据集，您可以使用 ElasticFusion 轻松运行该数据集，并可</font></font><a href="http://www.doc.ic.ac.uk/~sleutene/datasets/elasticfusion/dyson_lab.klg" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在此处</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载。</font><font style="vertical-align: inherit;">按如下方式启动它：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>./ElasticFusion -l dyson_lab.klg</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="./ElasticFusion -l dyson_lab.klg" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h1 tabindex="-1" dir="auto"><a id="user-content-5-license" class="anchor" aria-hidden="true" tabindex="-1" href="#5-license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5. 许可证</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ElasticFusion 免费提供，仅供非商业用途。</font></font><a href="http://www.imperial.ac.uk/dyson-robotics-lab/downloads/elastic-fusion/elastic-fusion-license/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此处</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和 LICENSE.txt 文件中</font><font style="vertical-align: inherit;">详细介绍了管理其使用的完整条款和条件。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-6-faq" class="anchor" aria-hidden="true" tabindex="-1" href="#6-faq"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6. 常见问题解答</font></font></h1>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">硬件要求是什么？</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个</font></font><a href="https://en.wikipedia.org/wiki/List_of_Nvidia_graphics_processing_units#GeForce_900_Series" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非常快的 nVidia GPU (3.5TFLOPS+)</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和一个快速的 CPU（类似于 i7）。</font><font style="vertical-align: inherit;">如果您想使用非 nVidia GPU，您可以重写跟踪代码或用其他代码替换它，因为管道的其余部分实际上是用 OpenGL 着色语言编写的。</font></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何获得性能统计数据？</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载</font></font><a href="https://github.com/mp3guy/Stopwatch"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Stopwatch</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并与 ElasticFusion 同时</font><font style="vertical-align: inherit;">运行</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">StopwatchViewer 。</font></font></em><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我运行了一个大型数据集并得到了assert(graph.size() / 16 &lt; MAX_NODES) 失败</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目前，变形图中的节点数量受到延迟编码的限制（使用真正宽的纹理而不是适当的 2D 纹理）。</font><font style="vertical-align: inherit;">因此，我们受到纹理最大尺寸的限制，在现代卡/OpenGL 上为 16384。</font><font style="vertical-align: inherit;">要么修复代码，这样这就不再是问题，要么增加</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Core/Shaders/sample.geom</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中的模因子。</font></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我有一台不错的新笔记本电脑，具有良好的 GPU，但速度仍然很慢</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果你的笔记本电脑使用电池供电，GPU 将降低速度以节省电量，因此这不太可能起作用（顺便说一句，</font></font><a href="https://github.com/mp3guy/Kintinuous"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kintinious</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如今在使用电池供电的现代笔记本电脑上将以 30Hz 的频率运行）。</font><font style="vertical-align: inherit;">您可以尝试禁用 SO(3) 预对齐、启用快速里程计、仅使用 ICP 或 RGB 跟踪而不是同时使用两者、在开环模式下运行或禁用跟踪金字塔。</font><font style="vertical-align: inherit;">所有这些都会影响你的准确性。</font></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我保存了地图，如何查看？</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载</font></font><a href="http://meshlab.sourceforge.net/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网格实验室</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">选择“渲染”-&gt;“着色器”-&gt;“泼溅”。</font></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地图不断损坏 - 跟踪失败 - 闭环不正确/不起作用</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">首先，如果您正在实时运行并且不处理日志文件，请确保达到 30Hz，这很重要。</font><font style="vertical-align: inherit;">其次，您无法极快地移动传感器，因为这违反了投影数据关联背后的假设。</font><font style="vertical-align: inherit;">除此之外，您可能正在使用 primesense，这意味着您会遭受运动模糊、相机不同步和滚动快门的困扰。</font><font style="vertical-align: inherit;">所有这些都会因快速运动而加剧并阻碍跟踪性能。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您没有获得环路闭合并期望得到一些环路闭合，请注意右下角的内点图和残差图，这些是您与局部环路闭合的接近程度的指示器。</font><font style="vertical-align: inherit;">对于全局循环闭合，您需要依靠</font></font><a href="http://www.doc.ic.ac.uk/~bglocker/pdfs/glocker2015tvcg.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">蕨类关键帧编码</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来拯救您，与所有基于外观的位置识别方法一样，它也有其局限性。</font></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有ROS桥/节点吗？</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不。该系统依赖于 GPU 上的映射和跟踪之间极其快速且紧密的耦合，我不认为 ROS 在消息传递方面原生支持这种耦合。</font></font></p>
+<p dir="auto"><em><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这似乎不像视频/论文中那样有效</font></font></strong></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为了开源该系统，进行了大量的重构，包括重写大量功能以避免某些许可证并减少依赖性。</font><font style="vertical-align: inherit;">尽管在此过程中非常小心，但有可能引入了性能回归但尚未被发现。</font></font></p>
+</article></div>
